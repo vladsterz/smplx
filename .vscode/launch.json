@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Demo",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args" : 
+            [
+                "--model-folder", "D:\\VCL\\Users\\vlad\\Generic_data\\SMPL\\merged",
+                "--plot-joints" , "True",
+                "--model-type" , "smplh",
+                "--gender", "male",
+                "--ext", "pkl"
+                //"--plotting-module", "matplotlib"
+            ]
+        },
+        {
+            "name": "Merge",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args" : 
+            [
+                "--smplh-fn", "D:\\VCL\\Users\\vlad\\Generic_data\\SMPL\\merged\\smplh\\SMPLH_male.pkl",
+                "--mano-left-fn" , "D:\\VCL\\Users\\vlad\\Generic_data\\SMPL\\smplh\\mano_v1_2\\mano_v1_2\\models\\clean_of_chumpy\\MANO_LEFT.pkl",
+                "--mano-right-fn" , "D:\\VCL\\Users\\vlad\\Generic_data\\SMPL\\smplh\\mano_v1_2\\mano_v1_2\\models\\clean_of_chumpy\\MANO_RIGHT.pkl",
+                "--output-folder", "D:\\VCL\\Users\\vlad\\Generic_data\\SMPL\\merged\\smplh\\merged_with_mano",
+            ]
+        }
+    ]
+}

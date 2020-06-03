@@ -49,7 +49,7 @@ def clean_fn(fn, output_folder='output'):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input-models', dest='input_models', nargs='+',
+    parser.add_argument('--input-models', dest='input_models',# nargs='+',
                         required=True, type=str,
                         help='The path to the model that will be processed')
     parser.add_argument('--output-folder', dest='output_folder',
@@ -58,7 +58,8 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    input_models = args.input_models
+    input_models = [osp.join(args.input_models, x) for x in os.listdir(args.input_models) if x.endswith(".pkl")]
+    print(input_models)
     output_folder = args.output_folder
     if not osp.exists(output_folder):
         print('Creating directory: {}'.format(output_folder))
